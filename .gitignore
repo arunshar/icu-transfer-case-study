@@ -1,0 +1,18 @@
+# Data: the public MIMIC-III demo is fetched on demand by extract.py --download
+data/
+*.sqlite
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets (never commit an API key)
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
