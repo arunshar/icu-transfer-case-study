@@ -1,0 +1,102 @@
+{
+  "ollama:llama3.1:8b": {
+    "n": 73,
+    "parse_rate": 1.0,
+    "accuracy": 0.507,
+    "balanced_accuracy": 0.561,
+    "recall_C_escalation_sensitivity": 0.122,
+    "recall_C_ci95": [
+      0.053,
+      0.255
+    ],
+    "recall_A_specificity": 1.0,
+    "recall_A_ci95": [
+      0.893,
+      1.0
+    ],
+    "precision_C": 1.0,
+    "escalation_rate": 0.068,
+    "latency_s_mean": 1.66,
+    "latency_s_median": 1.55,
+    "latency_s_p95": 2.1,
+    "confusion_gt_to_pred": {
+      "A": {
+        "A": 32
+      },
+      "B": {},
+      "C": {
+        "B": 3,
+        "A": 33,
+        "C": 5
+      }
+    }
+  },
+  "closed:claude-opus-4-8": {
+    "n": 73,
+    "parse_rate": 1.0,
+    "accuracy": 0.301,
+    "balanced_accuracy": 0.32,
+    "recall_C_escalation_sensitivity": 0.171,
+    "recall_C_ci95": [
+      0.085,
+      0.313
+    ],
+    "recall_A_specificity": 0.469,
+    "recall_A_ci95": [
+      0.309,
+      0.636
+    ],
+    "precision_C": 0.778,
+    "escalation_rate": 0.123,
+    "latency_s_mean": 2.1,
+    "latency_s_median": 1.94,
+    "latency_s_p95": 3.13,
+    "confusion_gt_to_pred": {
+      "A": {
+        "A": 15,
+        "C": 2,
+        "B": 15
+      },
+      "B": {},
+      "C": {
+        "B": 25,
+        "A": 9,
+        "C": 7
+      }
+    }
+  },
+  "closed:claude-sonnet-4-6": {
+    "n": 73,
+    "parse_rate": 1.0,
+    "accuracy": 0.411,
+    "balanced_accuracy": 0.404,
+    "recall_C_escalation_sensitivity": 0.463,
+    "recall_C_ci95": [
+      0.321,
+      0.613
+    ],
+    "recall_A_specificity": 0.344,
+    "recall_A_ci95": [
+      0.204,
+      0.517
+    ],
+    "precision_C": 0.594,
+    "escalation_rate": 0.438,
+    "latency_s_mean": 2.46,
+    "latency_s_median": 2.33,
+    "latency_s_p95": 2.94,
+    "confusion_gt_to_pred": {
+      "A": {
+        "C": 13,
+        "A": 11,
+        "B": 8
+      },
+      "B": {},
+      "C": {
+        "A": 13,
+        "C": 19,
+        "B": 9
+      }
+    }
+  }
+}
