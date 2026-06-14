@@ -1,0 +1,35 @@
+# Research Summary: Two-Paper Review and Clinical Gap Proposal
+
+> Author: Arun Sharma. Written in my own words per the assignment instructions.
+> Part 1: one-page summary of each paper. Part 2: a clinical gap, its importance, the
+> business and clinical problem it solves, and a proposed approach with benefits.
+
+## PAPER 1: Closing Reasoning Gaps in Clinical Agents with Differential Reasoning Learning
+
+Problem and Motivation. The authors highlight that while large language models (LLMs) achieve high accuracy in factual question answering, clinicians need to trust the decisions they make. The chain-of-thought reasoning of LLMs often contains missing or hallucinatory steps, and existing evaluation metrics focus on final answers rather than the reasoning processes. This is dangerous because errors early in diagnostic reasoning can propagate to downstream decisions. Recent longitudinal benchmarks show that even state-of-the-art models achieve high final-diagnosis accuracy yet fail miserably at early differential diagnosis, underscoring the need for process-level supervision and auditability.
+
+Method. Liu et al. introduce Differential Reasoning Learning (DRL), a framework that converts a model's chain of thought into a directed acyclic graph whose nodes represent facts, hypotheses, and actions. The model's reasoning graph is compared with an expert reference using a clinically weighted graph edit distance to identify missing or hallucinated nodes and erroneous connections. Discrepancies are expressed as natural-language instructions and stored in a differential reasoning knowledge base (DR-KB), which is later used to retrieve relevant instructions and patch reasoning gaps during inference without changing the underlying model parameters.
+
+Key Results. DRL was evaluated on multiple medical reasoning benchmarks, including MedQA, MedMCQA and a Return Visit Admission dataset. It consistently improved accuracy relative to baseline LLMs and retrieval-augmented generation systems. Because the reasoning graph is explicit, clinicians can audit and understand each step, and new instructions can be added to the knowledge base to adapt to different clinical domains.
+
+Important Highlights. DRL emphasizes process-level supervision, interpretability and domain transfer. By focusing on intermediate reasoning rather than just final answers, it complements retrieval-augmented approaches like KARE and agentic medical knowledge graphs, which provide factual grounding but not reasoning quality.
+
+## PAPER 2: What People See (and Miss) About Generative AI Risks
+
+Problem and Motivation. As generative AI systems become ubiquitous, there is growing concern about hallucinations, biased outputs and other failures. The public's understanding of these risks is not well characterized, and policymakers lack data on which failure modes people recognize. Li et al. aim to understand public perceptions of generative AI risks by building on the U.S. National Institute of Standards and Technology (NIST) AI Risk Management Framework and focusing on failure modes rather than on specific applications.
+
+Method. The authors created 24 realistic scenarios, each illustrating a different failure mode (e.g., hallucination, biased training data, privacy breach). After validation by responsible AI experts, the scenarios were presented to 960 U.S. participants. Respondents identified the failure mode, described the harm and indicated whether developers, companies, governments or users should address the issue.
+
+Key Findings. Participants were highly aware of visible failures such as hallucinations and offensive outputs, but upstream issues like data misuse or biased datasets were often overlooked. Environmental impacts emerged as a concern. Most respondents believed responsibility is shared among multiple stakeholders, and those with greater trust in government were more supportive of strong AI regulation. Scenario-based questions elicited broader awareness than abstract surveys.
+
+Important Highlights. The study suggests that AI literacy initiatives should cover data collection and training practices, not just output quality. Scenario-based training could help clinicians and patients recognize a wider range of risks, and multi-stakeholder governance frameworks are necessary to address them.
+
+## GAP PROPOSAL AND VISION
+
+Gap. Current clinical AI systems lack an integrated approach that models how a patient's condition evolves over time and simultaneously communicates the system's reasoning and associated risks. DRL and similar methods supervise reasoning on static cases, while retrieval-augmented frameworks like KARE or AMG-RAG provide up-to-date information but do not capture temporal dynamics or risk explanations. Meanwhile, studies of generative-AI risk perceptions show that clinicians and patients often misunderstand upstream failures and misattribute responsibility. There is no framework that combines longitudinal reasoning, continuously updated knowledge and risk-aware communication.
+
+Why it matters. Accurate early reasoning is essential because errors in differential diagnosis can cascade through treatment plans. Without temporal reasoning, AI systems cannot update their conclusions when new data arrives. Transparent communication about model limitations and risks is vital for clinician and patient trust and for meeting regulatory requirements. Integrating reasoning and risk communication would reduce malpractice risk, improve safety and foster adoption.
+
+Proposed Approach. We propose Longitudinal Risk-Aware Differential Reasoning (LRDR), which extends DRL by linking reasoning graphs across time to reflect the patient's trajectory. New clinical observations update the graph, and a temporal attention mechanism revises hypotheses. A continuously updated medical knowledge graph supplies contextually relevant evidence. The system categorizes potential errors using the failure-mode taxonomy from the generative AI risk study and generates scenario-based explanations that communicate why the AI reached its conclusion and what risks remain. A feedback loop compares the evolving graph to clinical guidelines and updates the instruction database.
+
+Expected Benefits. LRDR should improve differential diagnosis, reduce hallucinations through stronger grounding, and build trust through transparent, risk-aware explanations. By logging reasoning and risk assessments, it will facilitate regulatory compliance and streamline deployment. Ultimately, the framework aims to serve as a proof of concept for safer, more interpretable clinical AI.
