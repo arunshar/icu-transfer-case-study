@@ -1,6 +1,9 @@
 # Research Summary: Two-Paper Review and Clinical Gap Proposal
 
 > Author: Arun Sharma. Written in my own words per the assignment instructions.
+>
+> Formatted Google Doc version: https://docs.google.com/document/d/1gNYIToGz3u1SpZoWvMW4N84Ztusq2YjfGiGZdFfYjMw/edit?usp=sharing
+
 > Part 1: one-page summary of each paper. Part 2: a clinical gap, its importance, the
 > business and clinical problem it solves, and a proposed approach with benefits.
 
