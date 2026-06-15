@@ -30,18 +30,10 @@ Gap. Current clinical AI systems lack an integrated approach that models how a p
 
 Why it matters. Accurate early reasoning is essential because errors in differential diagnosis can cascade through treatment plans. Without temporal reasoning, AI systems cannot update their conclusions when new data arrives. Transparent communication about model limitations and risks is vital for clinician and patient trust and for meeting regulatory requirements. Integrating reasoning and risk communication would reduce malpractice risk, improve safety and foster adoption.
 
-<!-- INSERT HERE (write in your own words, 1-2 sentences): "Business and clinical problem it solves."
-     Clinical: cascading diagnostic error, missed early deterioration, patient-safety harm.
-     Business: malpractice/liability exposure, CMS readmission penalties, wasted downstream tests,
-              clinician adoption/throughput, FDA/ONC compliance documentation.
-     Keep the 2-3 that fit. The prompt explicitly asks for the BUSINESS and clinical problem. -->
+Business and clinical problem it solves. Unchecked generative-AI failures expose hospitals and practices to malpractice lawsuits, CMS penalties for inappropriate care, and wasted expenditures on unnecessary tests or readmissions. Clinically, the lack of risk-aware decision support means latent biases and data-collection flaws can propagate into diagnoses and treatment plans, eroding patient trust and leading to missed or delayed diagnoses. Integrating risk-aware generative AI education and reasoning into workflows directly addresses these liabilities by preventing harmful recommendations, improving care quality, and supporting regulatory compliance.
 
 Proposed Approach. We propose Longitudinal Risk-Aware Differential Reasoning (LRDR), which extends DRL by linking reasoning graphs across time to reflect the patient's trajectory. New clinical observations update the graph, and a temporal attention mechanism revises hypotheses. A continuously updated medical knowledge graph supplies contextually relevant evidence. The system categorizes potential errors using the failure-mode taxonomy from the generative AI risk study and generates scenario-based explanations that communicate why the AI reached its conclusion and what risks remain. A feedback loop compares the evolving graph to clinical guidelines and updates the instruction database.
 
-<!-- INSERT HERE (write in your own words, 2-3 sentences): "Evaluation plan."
-     Dataset: the Return-Visit-Admission longitudinal EHR setting from the DRL paper.
-     Metric: early-differential-diagnosis accuracy PLUS a calibration / risk-communication measure (not just final accuracy).
-     Baselines: DRL without the temporal link; a RAG baseline (KARE / AMG-RAG); the base LLM.
-     Go/no-go: early-DDx recall at a fixed false-alarm budget. -->
+Evaluation plan. To validate the proposed approach, we will conduct a prospective study using the Return Visit Admission (RVA) longitudinal EHR dataset. Performance will be measured on early differential diagnosis (DDx) accuracy, calibration (e.g., Brier score) and the quality of risk communication assessed via clinician surveys. We will compare the full system against three baselines: (1) DRL without the temporal/risk-aware extensions; (2) a retrieval-augmented generation (RAG) baseline with no process supervision; and (3) a base LLM without any reasoning supervision or retrieval. Success will require at least a 10 percentage-point improvement in early DDx accuracy over the best baseline and statistically significant gains in calibration and risk-communication scores.
 
 Expected Benefits. LRDR should improve differential diagnosis, reduce hallucinations through stronger grounding, and build trust through transparent, risk-aware explanations. By logging reasoning and risk assessments, it will facilitate regulatory compliance and streamline deployment. Ultimately, the framework aims to serve as a proof of concept for safer, more interpretable clinical AI.
